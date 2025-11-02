@@ -11,11 +11,11 @@ int main() {
     char startAddr_str[20], progName[20], record[MAX_RECORD_LEN + 1];
     int length, startAddr, locctr, record_len = 0, record_start_addr = 0;
 
-    intermediate = fopen("input/intermediate.txt", "r");
-    optab = fopen("input/optab.txt", "r");
-    symtab = fopen("input/symtab.txt", "r");
-    lengthFile = fopen("input/length.txt", "r");
-    output = fopen("output/objectcode.txt", "w");
+    intermediate = fopen("intermediate.txt", "r");
+    optab = fopen("optab.txt", "r");
+    symtab = fopen("symtab.txt", "r");
+    lengthFile = fopen("length.txt", "r");
+    output = fopen("objectcode.txt", "w");
 
     if (!intermediate || !optab || !symtab || !lengthFile || !output) {
         printf("Error opening files.\n");
