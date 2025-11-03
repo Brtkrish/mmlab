@@ -1,7 +1,7 @@
 README.md
 ani/absldr/input.txt
 ani/absldr/output.txt
-ani/absldr/prog.c
+ani/absldr/absldr.c
 ani/cscan.c
 ani/fcfs.c
 ani/fcfs_disk.c
