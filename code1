@@ -1,0 +1,42 @@
+---
+
+### 🧮 **Algorithm**
+1. Load `a` from memory (3000H).  
+2. Load `b` from memory (3002H).  
+3. Subtract `b` from `a` → AX = a − b.  
+4. Copy result to BX.  
+5. Multiply AX × BX → (a − b)².  
+6. Store result (high and low bytes) at 4000H, 4001H.  
+7. Halt.
+
+---
+
+### 🧰 **Full EMU8086 Code**
+
+```asm
+DATA SEGMENT
+    A DW 02H        ; a = 2
+    B DW 03H        ; b = 3
+    RESULT DW ?     ; to store (a - b)^2
+DATA ENDS
+
+CODE SEGMENT
+ASSUME CS:CODE, DS:DATA
+
+START:
+    MOV AX, DATA
+    MOV DS, AX
+
+    LEA SI, A        ; SI → address of A
+    LEA DI, RESULT   ; DI → address of RESULT
+
+    MOV AX, [SI]     ; AX = a
+    ADD SI, 2
+    SUB AX, [SI]     ; AX = a - b
+    MOV BX, AX
+    MUL BX           ; AX = (a - b)^2
+    MOV [DI], AX     ; Store 16-bit result at RESULT
+
+    HLT
+CODE ENDS
+END START
