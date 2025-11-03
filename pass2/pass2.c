@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_RECORD_LEN 60 // Max bytes in one T record (30 instructions)
+#define MAX_RECORD_LEN 60 
 
 int main() {
     FILE *intermediate, *optab, *symtab, *lengthFile, *output;
